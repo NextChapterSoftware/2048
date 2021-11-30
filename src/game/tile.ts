@@ -8,13 +8,13 @@ export interface Tile extends TilePosition {
 }
 
 export function buildTile(
-  rowIndex: number,
-  colIndex: number,
+  rowIdx: number,
+  colIdx: number,
   value: number
 ): Tile {
   return {
-    rowIndex: rowIndex,
-    cellIndex: colIndex,
+    rowIndex: rowIdx,
+    cellIndex: colIdx,
     value: value
   };
 }
