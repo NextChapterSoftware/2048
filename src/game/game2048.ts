@@ -39,7 +39,7 @@ export class Game2048 {
   }
 
   public serialize(): string {
-    const state: IGameState = {
+    const state: IGameState2 = {
       scores: 0,
       gridSerialized: this.grid.serialize()
     };
@@ -48,7 +48,7 @@ export class Game2048 {
 
   public initFromState(gameState: string): boolean {
     try {
-      const state: IGameState = JSON.parse(gameState);
+      const state: IGameState2 = JSON.parse(gameState);
       const scores = ensure(state.scores);
       const grid = ensure(Grid.deserialize(state.gridSerialized));
       this.scores = scores;
