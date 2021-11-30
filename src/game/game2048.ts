@@ -20,7 +20,7 @@ import { stay } from "helpers/async";
 import { ensure } from "helpers/syntax";
 
 
-export interface IGameState3 {
+export interface IGameState {
   scores: number;
   gridSerialized: string;
 }
