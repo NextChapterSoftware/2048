@@ -54,19 +54,19 @@ export class Grid {
 
   public insertTile(irow: number, icell: number, value: number): void {
     if (irow < 0) {
-      throw new Error("X position " + irow + "is < 0");
+      throw new Error("X position " + irow + "is less than 0");
     }
 
     if (icell < 0) {
-      throw new Error("Y position " + icell + "is < 0");
+      throw new Error("Y position " + icell + "is less than 0");
     }
 
     if (irow >= this.size) {
-      throw new Error("X position " + irow + "is more than grid size");
+      throw new Error("X position " + irow + "is greater than grid size");
     }
 
     if (icell >= this.size) {
-      throw new Error("Y position " + icell + "is more than grid size");
+      throw new Error("Y position " + icell + "is greater than grid size");
     }
 
     if (this.cells[irow][icell] != 0) {
