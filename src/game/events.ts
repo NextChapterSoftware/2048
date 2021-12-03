@@ -3,6 +3,12 @@ import { Direction } from "./enums";
 
 export class GameEvent {}
 
+/*
+
+This is the file containing events
+
+*/
+
 export class TileMergeEvent extends GameEvent {
   constructor(
     public oldPosition: TilePosition,
@@ -10,6 +16,7 @@ export class TileMergeEvent extends GameEvent {
     public newValue: number
   ) {
     super();
+    console.log("Tile merge!")
   }
 }
 
@@ -21,6 +28,7 @@ export class TileMoveEvent extends GameEvent {
     public shouldBeDeleted: boolean
   ) {
     super();
+    console.log("Move Event created!");
   }
 }
 
