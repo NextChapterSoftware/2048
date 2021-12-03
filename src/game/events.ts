@@ -3,6 +3,12 @@ import { Direction } from "./enums";
 
 export class GameEvent {}
 
+/*
+
+This is the file containing events
+
+*/
+
 export class TileMergeEvent extends GameEvent {
   constructor(
     public oldPosition: TilePosition,
