@@ -40,7 +40,7 @@ export class Grid {
       this.cells.push(row);
       const cellsData = rowsData[irow].split(",");
       if (cellsData.length != this.size) {
-        throw new Error("Incorrect serialized grid state");
+        throw new Error("Incorrectly serialized grid state");
       }
       for (let icell = 0; icell < this.size; ++icell) {
         row.push(parseInt(cellsData[icell], 10));
