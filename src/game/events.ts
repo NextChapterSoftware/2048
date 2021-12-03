@@ -30,6 +30,12 @@ export class TileCreatedEvent extends GameEvent {
   }
 }
 
+export class TileDidALittleDanceEvent extends GameEvent { 
+  constructor(public danceName: string) {
+    super() 
+  }
+}
+
 export class TileDeletedEvent extends GameEvent {
   constructor(public position: TilePosition) {
     super();
