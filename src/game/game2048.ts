@@ -20,12 +20,12 @@ import { stay } from "helpers/async";
 import { ensure } from "helpers/syntax";
 
 
-export interface IGameState2 {
+export interface IGameState3 {
   scores: number;
   gridSerialized: string;
 }
 
-export class Game2048 {
+ export class Game2048 {
   private scores: number = 0;
   public grid: Grid;
   private userActionsQueue: Action[] = [];
