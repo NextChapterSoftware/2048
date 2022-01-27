@@ -20,7 +20,7 @@ import { stay } from "helpers/async";
 import { ensure } from "helpers/syntax";
 
 
-export interface IGameState3 {
+export interface IGameState {
   scores: number;
   gridSerialized: string;
 }
@@ -39,7 +39,7 @@ export interface IGameState3 {
   }
 
   public serialize(): string {
-    const state: IGameState2 = {
+    const state: IGameState = {
       scores: 0,
       gridSerialized: this.grid.serialize()
     };
@@ -48,7 +48,7 @@ export interface IGameState3 {
 
   public initFromState(gameState: string): boolean {
     try {
-      const state: IGameState2 = JSON.parse(gameState);
+      const state: IGameState = JSON.parse(gameState);
       const scores = ensure(state.scores);
       const grid = ensure(Grid.deserialize(state.gridSerialized));
       this.scores = scores;
