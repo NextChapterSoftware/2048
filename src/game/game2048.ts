@@ -74,15 +74,15 @@ export interface IGameState {
 
   private processSingleAction(action: Action) {
     const gameEvents: GameEvent[] = [];
+
     if (action.type === "MOVE") {
       gameEvents.push(...this.processMoveAction(action.direction));
     }
+    
     if (action.type === "START") {
-      if (
-        action.serializedState &&
-        this.initFromState(action.serializedState)
-      ) {
+      if (action.serializedState && this.initFromState(action.serializedState)) {
         gameEvents.push(new GameStartedEvent());
+        
         for (let irow = 0; irow < this.grid.size; irow++) {
           for (let icell = 0; icell < this.grid.size; icell++) {
             if (this.grid.cells[irow][icell] > 0) {
@@ -99,6 +99,7 @@ export interface IGameState {
       } else {
         this.scores = 0;
         gameEvents.push(new GameStartedEvent());
+        
         for (let irow = 0; irow < this.grid.size; irow++) {
           for (let icell = 0; icell < this.grid.size; icell++) {
             if (this.grid.cells[irow][icell] > 0) {
@@ -109,12 +110,14 @@ export interface IGameState {
             }
           }
         }
+
         const newTile = this.insertNewTileToVacantSpace();
         if (newTile) {
           gameEvents.push(new TileCreatedEvent(newTile));
         }
       }
     }
+
     return gameEvents;
   }
 
@@ -197,18 +200,20 @@ export interface IGameState {
 
   private insertNewTileToVacantSpace(): Tile | undefined {
     const availTitles = this.grid.availableCells();
-    if (availTitles.length > 0) {
-      const ti = this.rand.getRandomNumber(0, availTitles.length);
-      const pos = availTitles[ti];
-      const tile: Tile = {
-        rowIndex: pos.rowIndex,
-        cellIndex: pos.cellIndex,
-        value: 2
-      };
-      this.grid.insertTileByPos(tile, tile.value);
-      return tile;
+
+    if (availTitles.length == 0) {
+      return undefined;
     }
 
-    return undefined;
+    const ti = this.rand.getRandomNumber(0, availTitles.length);
+    const pos = availTitles[ti];
+    const tile: Tile = {
+      rowIndex: pos.rowIndex,
+      cellIndex: pos.cellIndex,
+      value: 2
+    };
+    this.grid.insertTileByPos(tile, tile.value);
+    
+    return tile;
   }
 }
