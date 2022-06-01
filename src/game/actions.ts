@@ -10,4 +10,9 @@ export interface MoveAction {
   direction: Direction;
 }
 
-export type Action = StartNewGameAction | MoveAction;
+export interface MagicAction {
+  type: "MAGIC";
+  spell: Spell;
+}
+
+export type Action = StartNewGameAction | MoveAction | MagicAction;

@@ -4,3 +4,8 @@ export enum Direction {
   Right = "right",
   Left = "left"
 }
+
+export enum Spell {
+  Abara = "abara",
+  Kadabara = "kadabara"
+}
