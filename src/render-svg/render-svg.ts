@@ -271,11 +271,9 @@ export class RenderSVG {
   }
 
   private getTileColors(value: number) {
-    const bgColor = cellBgColors[value] || fallbackCellBgColor;
-    const color = cellColors[value] || falbackCellColor;
     return {
-      color,
-      bgColor
+      color: cellColors[value] || falbackCellColor,
+      bgColor: cellBgColors[value] || fallbackCellBgColor
     };
   }
 }
